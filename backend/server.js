@@ -22,7 +22,9 @@ app.use("/", router);
 const PORT = process.env.SECRET_PORT;
 
 connectDb().then(() => {
-  
+  app.listen(PORT, () => {
+    
+  })
 }).catch(() => {
   
 })
