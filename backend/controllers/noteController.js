@@ -103,7 +103,7 @@ const updateNote = async(req, res) => {
   const updatedData = { note, title };
   
   try {
-   const result = await Note.updateOne({ _id: noteId, userId }, updatedData);
+   const result = await Note.updateOne({ _id: noteId, userId }, updatedData, {new: true});
    if(result.nModified === 0){
      return res.status(404).json({
       success: false, 
