@@ -79,7 +79,6 @@ const loginUser = async(req, res) => {
     return res.status(500).json({
       success: false,
       message: "Network error",
-      uhh: e.message
     })
   }
 }
@@ -111,7 +110,10 @@ const lookForSession = async(req, res) => {
       user
     })
     }catch(e){
-    
+    return res.status(500).json({
+      success: false,
+      message: "Network Error"
+    })
   }
 }
 
