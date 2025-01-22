@@ -124,7 +124,6 @@ const updateNote = async(req, res) => {
 
 const deleteNotes = async(req, res) => {
   const { selectedIds } = req.query;
-  console.log("Ids", selectedIds)
   if(!selectedIds){
     return res.status(401).json({
       success: false,
@@ -135,7 +134,7 @@ const deleteNotes = async(req, res) => {
     const response = await Note.deleteMany({ _id: {
       $in: [...selectedIds]
     }});
-    console.log({response})
+    
     return res.status(200).json({
       success: true,
       message: "Deleted Successfully"
@@ -161,7 +160,7 @@ const updateNotes = async(req, res) => {
     const response = await Note.updateMany({ _id: {
       $in: [...selectedIds]
     }}, { noteType: changeTo });
-    console.log({response})
+    
     return res.status(200).json({
       success: true,
       message: "Updated Successfully"

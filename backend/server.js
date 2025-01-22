@@ -9,7 +9,7 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: process.env.ORIGIN_URL,
   credentials: true
 }));
 app.use(cookieParser());
@@ -20,9 +20,9 @@ const PORT = process.env.SECRET_PORT;
 
 connectDb().then(() => {
   app.listen(PORT, () => {
-    console.log(`Live at http://localhost:${PORT}`);
+    
   });
 }).catch(() => {
-  console.log("error hoy db")
+  
 })
 

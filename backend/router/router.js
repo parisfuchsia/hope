@@ -43,14 +43,14 @@ const verifyToken = async(req, res, next) => {
       message: "No token found"
     })
   }
-  console.log({token})
+  
     try {
       const decoded = await jwt.verify(token, process.env.JWT_SECRET);
-      console.log({decoded});
+      
       req.decoded = decoded.id
       next();
     }catch(e){
-      console.log({e})
+      
       return res.status(500).json({
         success: false,
         message: "Invalid token"

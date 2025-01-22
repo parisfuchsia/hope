@@ -111,7 +111,7 @@ const lookForSession = async(req, res) => {
       user
     })
     }catch(e){
-    console.log({e})
+    
   }
 }
 

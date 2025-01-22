@@ -24,7 +24,7 @@ userSchema.pre("save", async function(req, res, next){
     this.password = await bcrypt.hash(this.password, salt);
     next();
   }catch(e){
-    console.log("error hashing of password");
+  
 }})
 
 userSchema.methods.comparePassword = async function(getPass) {
